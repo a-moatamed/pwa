@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 80px;
+}
+
+button {
+    font-size: 24px;
+    padding: 20px 40px;
+    margin: 15px;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+}
+
+#green {
+    background: green;
+}
+
+#red {
+    background: red;
+}
+
+#result {
+    margin-top: 30px;
+    font-size: 28px;
+    font-weight: bold;
+}
