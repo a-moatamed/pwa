@@ -2,19 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Counter PWA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.css">
+    <title>Counter</title>
 
     <meta name="theme-color" content="#4CAF50">
+
+    <link rel="manifest" href="manifest.json">
+
+    <link rel="apple-touch-icon" href="icons/ios/180.png">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <h1>Counter App</h1>
 
 <button id="green">Green Button</button>
+
 <button id="red">Show Count</button>
 
 <p id="result"></p>
@@ -22,8 +27,12 @@
 <script src="app.js"></script>
 
 <script>
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("service-worker.js");
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+            .then(reg => console.log("SW registered", reg))
+            .catch(err => console.error(err));
+    });
 }
 </script>
 

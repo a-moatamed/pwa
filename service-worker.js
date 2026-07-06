@@ -1,17 +1,24 @@
-const CACHE_NAME = "counter-v1";
+const CACHE_NAME = "counter-v2";
 
 const FILES = [
     "./",
     "./index.html",
     "./style.css",
     "./app.js",
-    "./manifest.json"
+    "./manifest.json",
+    "./icons/android/launchericon-192x192.png",
+    "./icons/android/launchericon-512x512.png"
 ];
 
 self.addEventListener("install", event => {
     event.waitUntil(
         caches.open(CACHE_NAME).then(cache => cache.addAll(FILES))
     );
+    self.skipWaiting();
+});
+
+self.addEventListener("activate", event => {
+    event.waitUntil(self.clients.claim());
 });
 
 self.addEventListener("fetch", event => {

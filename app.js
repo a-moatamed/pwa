@@ -1,11 +1,14 @@
 let count = Number(localStorage.getItem("count")) || 0;
 
-document.getElementById("green").addEventListener("click", () => {
+const green = document.getElementById("green");
+const red = document.getElementById("red");
+const result = document.getElementById("result");
+
+green.addEventListener("click", () => {
     count++;
     localStorage.setItem("count", count);
 });
 
-document.getElementById("red").addEventListener("click", () => {
-    document.getElementById("result").textContent =
-        `Green button clicked ${count} times`;
+red.addEventListener("click", () => {
+    result.textContent = `Green button clicked ${count} times`;
 });
